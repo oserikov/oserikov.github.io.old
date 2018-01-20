@@ -3,21 +3,31 @@
 <head>
     <style>
         body {
+			box-sizing: border-box;
             margin: 0;
         }
-
+		.nav_upp_bar {
+			display: none;
+		}
         .nav_side_bar{
+			box-sizing: border-box;
             width: 25%;
             position: fixed;
             height: 100%;
-            padding:1px 16px;
+			border-right: 2px solid black;
         }
+		.nav_side_bar_content{
+            padding: 1px 16px;
+		}
+		.nav_side_bar_menu{
+			padding: 1px 0px 1px 16px;
+		}
 
-        .nav_side_bar p {
+        .nav_side_bar_content p {
             padding: 8px 16px;
         }
 
-        .nav_side_bar ul {
+        .nav_side_bar_menu ul {
             margin: 0;
             padding: 0;
             list-style-type: none;
@@ -25,22 +35,36 @@
             overflow: auto;
         }
 
-        li a {
+        .nav_side_bar_menu li a {
             display: block;
             color: #000;
             padding: 8px 16px;
             text-decoration: none;
         }
 
-        li a.active {
+        .nav_side_bar_menu li a.active {
             background-color: #000;
             color: white;
         }
-
-        li a:hover:not(.active) {
-            background-color: #555;
-            color: white;
-        }
+		.nav_side_bar_menu li a:not(.active){
+			border-top: 2px solid white;
+			border-left: 2px solid white;
+			border-bottom: 2px solid white;
+		}
+		.nav_side_bar_menu li a:hover:not(.active) {
+			background-color: #000;
+			color: white;
+			border-top: 2px solid black;
+			border-left: 2px solid black;
+			border-bottom: 2px solid black;
+		}
+		.nav_side_bar_menu li a.active {
+			background-color: white;
+			color: black;
+			border-top: 2px solid black;
+			border-left: 2px solid black;
+			border-bottom: 2px solid black;
+		}
         img {
             max-width: 90%;
             max-height: 90%;
@@ -54,15 +78,62 @@
 
         @media only screen and (max-aspect-ratio: 4/3){
             .nav_side_bar{
-                width: 100%;
-                position:static;
-                padding:1px 16px;
+				display: none;
             }
+			.nav_upp_bar{
+				display: inline-block;
+				position: fixed;
+				background-color: white;
+				width: 100%;
+				z-index: 2;
+				margin-bottom: 0;
+				border-bottom: 2px solid black;   				
+			}
+			.nav_upp_bar ul {
+				margin: 0;
+				padding-left: 0;
+				padding-right: 0;
+				padding-bottom: 0;
+				width: 100%;
+				list-style-type: none;
+				background-color: white;
+				overflow: auto;
+			}
+			.nav_upp_bar li {
+				width: 25%;
+				float: left;
+			}
+
+			.nav_upp_bar li a {
+        	    display: block;
+    	        color: #000;
+	            padding: 8px 16px;
+            	text-decoration: none;
+        	}
+
+			.nav_upp_bar li a:not(.active){
+				border-left: 2px solid white;
+				border-right: 2px solid white;
+			}
+			.nav_upp_bar li a:hover:not(.active) {
+				background-color: #000;
+            	color: white;
+				border-left: 2px solid black;
+				border-right: 2px solid black;
+			}
+			.nav_upp_bar li a.active {
+				background-color: white;
+				color: black;
+				border-left: 2px solid black;
+				border-right: 2px solid black;
+        	}
+			
 
             .content_container {
                 margin-left: 0;
                 padding: 1px 16px;
                 height: 1000px;
+				z-index: 1;
             }
         }
     </style>
@@ -86,6 +157,15 @@
                     $(".top_menu a").each(function() {
                         if (anchid === this.getAttribute("href").slice(1)) {
                             $(".top_menu a").not(this).each(function(){
+                                this.classList.remove("active");
+                            });
+                            $(this).addClass("active");
+                        }
+                    });
+					
+					$(".side_menu a").each(function() {
+                        if (anchid === this.getAttribute("href").slice(1)) {
+                            $(".side_menu a").not(this).each(function(){
                                 this.classList.remove("active");
                             });
                             $(this).addClass("active");
@@ -120,26 +200,40 @@
 </head>
 <body>
 <div class="nav_side_bar">
-    <center>
-        <h1>Hello world</h1>
+	<div class="nav_side_bar_content">
+	<center>
+        <h1>Oleg Serikov</h1>
         <img src="/face.png">
     </center>
 
     <p>
         Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium explicabo.
     </p>
+	</div>
+    
 
-    <ul class="top_menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about">About</a></li>
-    </ul>
+    <div class="nav_side_bar_menu">
+	<ul class="side_menu">
+		<li><a href="#home">Experience</a></li>
+		<li><a href="#news">Skills</a></li>
+		<li><a href="#contact">Education</a></li>
+		<li><a href="#about">Contacts</a></li>
+	</ul>
+	</div>
+	
+</div>
+<div class="nav_upp_bar">
+	<ul class="top_menu">
+		<li><a href="#home">Experience</a></li>
+		<li><a href="#news">Skills</a></li>
+		<li><a href="#contact">Education</a></li>
+		<li><a href="#about">Contacts</a></li>
+	</ul>
 </div>
 
 <div class="content_container">
     <div class="section" id="home">
-        <h1>Home paragraph</h1>
+        <h1>Experience</h1>
         <p>
             Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
             Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
@@ -149,7 +243,7 @@
     </div>
 
     <div class="section" id="news">
-        <h1>News paragraph</h1>
+        <h1>Skills</h1>
         <p>
             Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
             Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
@@ -159,7 +253,7 @@
     </div>
 
     <div class="section" id="contact">
-        <h1>Contact paragraph</h1>
+        <h1>Education</h1>
         <p>
             Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
             Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
