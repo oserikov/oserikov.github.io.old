@@ -58,6 +58,11 @@ $(window).scroll(function () {
 window.onload = function () {
     console.log("Window.OnLoad() STARTED");
     prettySideNavBarHandling();
+    var divs = document.getElementsByClassName("section");
+    var tmp = document.getElementById('content_container');
+
+    console.log(divs[divs.length - 1].clientHeight);
+    tmp.style.marginBottom = ($(window).height() - divs[divs.length - 1].offsetHeight - 18).toString()+"px";
     console.log("Window.OnLoad() FINISHED");
 };
 
@@ -68,3 +73,4 @@ $(window).on('hashchange', function () {
     }
     console.log("Window.OnHashChange() FINISHED");
 });
+

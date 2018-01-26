@@ -3,7 +3,6 @@
 body {
     box-sizing: border-box;
     font-family: "Open Sans", arial, x-locale-body, sans-serif;
-    /*font-weight: 400;*/
     font-size: large;
     margin: 0;
 }
@@ -12,15 +11,20 @@ body {
     display: none;
 }
 
-.content_container {
+#content_container {
     margin-left: 25%;
-    padding: 1px 5% 16px;
-    margin-bottom: 100vh;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 16px;
 }
 
 .section {
     border-bottom: 2px solid black;
     padding-bottom: inherit;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 2px;
+
 }
 
 .project h3 {
@@ -29,14 +33,10 @@ body {
 
 .project_info {
     box-sizing: border-box;
-    /*border-left: 2px solid black;*/
     line-height: normal;
-    /*padding-left: 2.5%;*/
 }
 
-.project_info p {
-    margin: 0.2em 0;
-}
+
 
 
 

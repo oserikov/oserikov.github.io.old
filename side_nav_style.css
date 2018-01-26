@@ -4,6 +4,7 @@
     position: fixed;
     height: 100%;
     border-right: 2px solid black;
+    z-index: 1;
 }
 
 .nav_side_bar_content {
@@ -42,6 +43,7 @@
     background-color: black;
     color: white;
     border: none;
+    font-size: medium;
     text-decoration: none;
 }
 
@@ -50,6 +52,7 @@
     color: black;
     border: 2px solid black;
     width: 100%;
+    font-size: medium;
     text-decoration: none;
 }
 
@@ -73,8 +76,11 @@
 }
 
 .nav_side_bar_menu li a.active {
-    background-color: #000;
-    color: white;
+    background-color: white;
+    color: black;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 .nav_side_bar_menu li a:not(.active) {
@@ -91,13 +97,6 @@
     border-bottom: 2px solid black;
 }
 
-.nav_side_bar_menu li a.active {
-    background-color: white;
-    color: black;
-    border-top: 2px solid black;
-    border-left: 2px solid black;
-    border-bottom: 2px solid black;
-}
 
 
 .nav_side_bar_info {
