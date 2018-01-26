@@ -7,7 +7,6 @@
             font-family: "Open Sans",arial,x-locale-body,sans-serif;
             /*font-weight: 400;*/
             font-size: large;
-            line-height: 1;
             margin: 0;
         }
 		.nav_upp_bar {
@@ -77,14 +76,31 @@
         .content_container {
             margin-left: 25%;
             padding: 1px 5% 16px;
-            height: 1000px;
             margin-bottom: 100vh;
         }
 
         .section {
             border-bottom: 2px solid black;
-
+            padding-bottom: inherit;
         }
+
+
+
+        .project h3 {
+            margin-bottom: 0.4em;
+        }
+
+        .project_info {
+            box-sizing: border-box;
+            /*border-left: 2px solid black;*/
+            line-height: normal;
+            /*padding-left: 2.5%;*/
+        }
+        .project_info p{
+            margin: 0.2em 0;
+        }
+
+
 
         @media only screen and (max-aspect-ratio: 4/3){
             .nav_side_bar{
@@ -249,52 +265,173 @@
     <div class="section" id="about">
         <h1>About me</h1>
         <p>
-            Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium explicabo.
+            Software developer, fourth-year student at Moscow Aviation Institute.
         </p>
     </div>
 
 
     <div class="section" id="experience">
         <h1>Experience</h1>
-        <h2>???, Mexanium & Microsoft Russia evangelism (nov 2017 -- now)</h2>
-        <p>Blah-blah-blah, RPi, .Net, Cloud, AI, API</p>
-        <h2>Software engineer, Delta Solutions LLC (dec 2016 -- now)</h2>
-        <p>Blah-blah-blah, Java, Python, Big data, Linux</p>
+
+        <div class="position">
+            <h2>Software developer, freelance (nov 2017 &ndash; now)</h2>
+            <p>with Mexanium and Microsoft evangelism.</p>
+            <!--<p style="margin-bottom: -1.2em">Project:</p>-->
+            <div class="project">
+                <h3>RoboShell &ndash; the shell for creating intelligent talking robots</h3>
+                <div class="project_info">
+                    <p>
+                        Dealing with Raspberry Pi's performance constraints while realtime applying the computer vision.
+                    </p>
+                    <p>
+                        <strong>Tools and technologies:</strong>
+                        C#, AI, Serverless.
+                    </p>
+                    <p>
+                        <strong>Tasks:</strong>
+                        Moving application logic to the cloud; development of the scripting language allowing to
+                        easily program different robots.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="position">
+            <h2>Software developer, Delta Solutions (dec 2016 &ndash; now)</h2>
+            <p>Projects (mostly for telecom providers):</p>
+
+            <div class="project">
+                <h3>Collection, indexing and long-term storage of information security events system</h3>
+                <div class="project_info">
+                    <p>
+                        Dealing with long-term running tasks on huge amounts of data.
+                    </p>
+                    <p>
+                        <strong>Tools and technologies:</strong>
+                        Java, Clickhouse, PostgreSQL, HP IUM.
+                    </p>
+                    <p>
+                        <strong>Tasks:</strong>
+                        Implementing backend for custom query engine; implementing custom PDF-reports -generating service.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="project">
+                <h3>AAA server</h3>
+                <div class="project_info">
+                    <p>
+                        <strong>Tools and technologies:</strong>
+                        Java, Couchbase, Elasticsearch, HP IUM.
+                    </p>
+                    <p>
+                        <strong>Tasks:</strong>
+                        Implementing backend for custom query engine;
+                    </p>
+                </div>
+            </div>
+
+
+
+            <div class="project">
+                <h3>Big-data infrastructure for telecom provider</h3>
+                ~50 servers cluster exploring the big telecom data
+                <div class="project_info">
+                    <p>
+                        <strong>Tools and technologies:</strong>
+                        Python, Bash, Elasticsearch, Logstash, Apache Hadoop.
+                    </p>
+                    <p>
+                        <strong>Tasks:</strong>
+                        Development of security logs collection system. Integration of Elasticsearch and Apache Hadoop.
+                    </p>
+                </div>
+            </div>
+
+
+
+            <div class="project">
+                <h3>Mediation system</h3>
+                <div class="project_info" >
+                    <p style="margin-bottom: 1em">
+                        <strong>Tasks:</strong>
+                        Implementing regular expressions support in scripting language of mediation system
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 
     <div class="section" id="skills">
         <h1>Skills</h1>
-        <h2>General</h2>
+        <h2>Most used</h2>
         <ul>
-            <li>Item</li>
-            <li>item</li>
-            <li>Eat 'em</li>
-        </ul>
+            <li>
+                Java (core, EE, JDBC)
+            </li>
+            <li>
+                Spring
+            </li>
+            <li>
+                Maven/Gradle
+            </li>
+            <li>
+                Python
+            </li>
+            <li>
+                Bash
+            </li>
+            <li>
+                Linux
+            </li>
+            <li>
+                ELK stack (Elasticsearch, Kibana, Logstash)
+            </li>
+            <li>
+                C#
+            </li>
+            <li>
+                <span style="text-decoration: underline">Databases:</span>
+                <ul>
+                    <li>SQL: Oracle, PostgreSQL, Clickhouse, MySQL</li>
+                    <li>NoSQL: Couchbase, Elasticsearch</li>
+                </ul>
+            </li>
 
-        <h2>Others</h2>
-        <ul>
-            <li>item</li>
         </ul>
-        <h2>to-do</h2>
+        <h2>Practiced in</h2>
         <ul>
-            <li>Java (core, EE)</li>
-            <li>Spring</li>
-            <li>Maven, Gradle</li>
-            <li>Java core</li>
-            <li>Java core</li>
-            <li>Java core</li>
+            <li>
+                HTML/CSS/JS
+            </li>
+            <li>
+                Node.js
+            </li>
+            <li>
+                C
+            </li>
+            <li>
+                C++
+            </li>
+            <li>
+                Machine learning & data analysis
+            </li>
+            <li>
+                Natural language processing
+            </li>
         </ul>
     </div>
 
     <div class="section" id="education">
         <h1>Education</h1>
         <p>
-            B.A. System programming at
-            Moscow Aviation Institute (NRU),
-        </p>
-        <p>
-            Faculty of IT and Applied Mathematics.
-            2014 - 2018 (expected)
+            B.A. System Programming at Moscow Aviation Institute (National Research University),
+            <br>
+            Faculty of IT and Applied Mathematics. 2014 - 2018 (expected)
         </p>
     </div>
 
