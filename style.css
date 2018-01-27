@@ -16,7 +16,7 @@ body {
     padding-right: 5%;
     padding-left: 5%;
     padding-bottom: 16px;
-    position: absolute;
+    position: static;
     height: available;
     z-index: 2;
 }
