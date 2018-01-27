@@ -16,12 +16,17 @@ body {
     padding-right: 5%;
     padding-left: 5%;
     padding-bottom: 16px;
+    position: absolute;
+    height: available;
+    z-index: 2;
 }
 
 .section {
     border-bottom: 2px solid black;
     padding-bottom: inherit;
     display: inline-block;
+    /*position: relative;*/
+    /*z-index: 2;*/
     width: 100%;
     margin-bottom: 2px;
 
@@ -37,7 +42,7 @@ body {
 }
 
 
-
+/*#skills ul */
 
 
 @media only screen and (max-aspect-ratio: 4/3) {
@@ -101,7 +106,7 @@ body {
         margin-left: 0;
         padding: 1px 16px;
         height: 1000px;
-        z-index: 1;
+        /*z-index: 1;*/
     }
 
 }

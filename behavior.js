@@ -48,6 +48,17 @@ function showPhoto() {
     y.style.display = "none";
 }
 
+function prettyResizeBottomMarginOfContentContainer() {
+    console.log("STARTED AAA");
+    var divs = document.getElementsByClassName("section");
+    var tmp = document.getElementById('content_container');
+
+    var lastHeight = divs[divs.length - 1].getBoundingClientRect().bottom - divs[divs.length - 1].getBoundingClientRect().top;
+    tmp.style.marginBottom = ($(window).height() - lastHeight - parseFloat(getComputedStyle(tmp).fontSize)).toString() + "px";
+    console.log("ENDED AAA");
+
+}
+
 
 $(window).scroll(function () {
     console.log("Window.Scroll() STARTED");
@@ -58,13 +69,14 @@ $(window).scroll(function () {
 window.onload = function () {
     console.log("Window.OnLoad() STARTED");
     prettySideNavBarHandling();
-    var divs = document.getElementsByClassName("section");
-    var tmp = document.getElementById('content_container');
-
-    console.log(divs[divs.length - 1].clientHeight);
-    tmp.style.marginBottom = ($(window).height() - divs[divs.length - 1].offsetHeight - 18).toString()+"px";
+    prettyResizeBottomMarginOfContentContainer();
     console.log("Window.OnLoad() FINISHED");
 };
+
+
+window.onresize = function () {
+    prettyResizeBottomMarginOfContentContainer();
+}
 
 $(window).on('hashchange', function () {
     console.log("Window.OnHashChange() STARTED");
