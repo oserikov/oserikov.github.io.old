@@ -1,13 +1,15 @@
-.nav_side_bar {
+#nav_side_bar {
     box-sizing: border-box;
     width: 25%;
     position: fixed;
     height: 100%;
     border-right: 2px solid black;
     z-index: 1;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
-.nav_side_bar_content {
+#nav_side_bar_content {
     padding-left: 5%;
     padding-right: 5%;
 }
@@ -56,55 +58,49 @@
     text-decoration: none;
 }
 
-.nav_side_bar_menu {
+#nav_side_bar_menu {
     padding-left: 5%;
     padding-right: 0;
 }
 
-.nav_side_bar_menu ul {
+#nav_side_bar_menu ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
-
     background-color: white;
-    /*overflow: auto;*/
 }
 
-.nav_side_bar_menu li a {
+#nav_side_bar_menu li a {
     display: block;
     color: black;
     padding: 0.3em 5%;
     text-decoration: none;
 }
 
-.nav_side_bar_menu li a.active {
+#nav_side_bar_menu li a.active {
     background-color: white;
     color: black;
-    box-shadow: 2px 0 0 0 black inset;/*, 0 2px 0 0 black inset, 0 -2px 0 0 black inset, 2px 0 0 0 black;*/
-    /*border-top: 2px solid black;*/
-    /*border-bottom: 2px solid black;*/
+    box-shadow: 2px 0 0 0 black inset;
 }
 
-.nav_side_bar_menu li a:not(.active) {
 
-    /*border-top: 2px solid white;*/
-    /*border-left: 2px solid white;*/
-    /*border-bottom: 2px solid white;*/
-}
-
-.nav_side_bar_menu li a:hover:not(.active) {
+#nav_side_bar_menu li a:hover:not(.active) {
     background-color: #000;
     color: white;
     box-shadow: 2px 0 0 0 black;
 }
 
+#nav_side_bar_contacts {
+    padding-left: 5%;
+}
+
+#nav_side_bar_contacts h2{
+    margin-bottom: 0.4em;
+}
 
 .contacts_list tr {
     height: 1em;
 }
-/*.contacts_list p {*/
-    /*padding: 0;*/
-/*}*/
 
 .contacts_list table {
     width: 100%;
@@ -115,7 +111,6 @@
     text-align: left;
 }
 
-
 .contacts_list td:nth-child(2) {
     padding-left: 5%;
 }
@@ -124,8 +119,5 @@
     vertical-align: middle; height: 1em;
 }
 
-.nav_side_bar_menu h2 {
-    margin-bottom: 0.4em;
-}
 
 
