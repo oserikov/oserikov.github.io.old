@@ -12,7 +12,7 @@ body {
 }
 
 #content_container {
-    margin-left: 25%;
+    margin-left: 20%;
     padding-right: 5%;
     padding-left: 5%;
     position: static;
@@ -38,11 +38,11 @@ body {
 
 
 @media only screen and (max-aspect-ratio: 4/3) {
-    .nav_side_bar {
+    #nav_side_bar {
         display: none;
     }
 
-    .nav_upp_bar {
+    .nav_upp_bar { //lol todo
         display: inline-block;
         position: fixed;
         background-color: white;
