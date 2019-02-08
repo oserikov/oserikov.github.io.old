@@ -11,6 +11,10 @@ body {
     display: none;
 }
 
+#hi_section {
+    display: none;
+}
+
 #content_container {
     margin-left: 20%;
     padding-right: 5%;
@@ -37,9 +41,22 @@ body {
 }
 
 
-@media only screen and (max-aspect-ratio: 4/3) {
+@media only screen and (max-aspect-ratio: 3/3) {
     #nav_side_bar {
         display: none;
+    }
+
+    #hi_section {
+        display: inline-block;
+    }
+    
+    #content_container {
+        margin-left: 0%;
+        padding-right: 5%;
+        padding-left: 5%;
+        position: static;
+        height: available;
+        z-index: 2;
     }
 
     .nav_upp_bar { //lol todo
