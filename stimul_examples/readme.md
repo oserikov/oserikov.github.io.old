@@ -1,4 +1,4 @@
 # Stimul subtitles related things
 
-* [NOUNS table example](nouns_analyses.html)
-* [NON-NOUNS table example](non_nouns_analyses.html)
+* [NOUNS table example](https://oserikov.github.io/stimul_examples/nouns_analyses)
+* [NON-NOUNS table example](https://oserikov.github.io/stimul_examples/non_nouns_analyses)
